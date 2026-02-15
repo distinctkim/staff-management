@@ -1,0 +1,30 @@
+@model IEnumerable<StaffManagementSystem.Models.Staff>
+
+<h2>Staff Listing</h2>
+
+<form method="get">
+    <input type="text" name="search" placeholder="Search by name" />
+    <button type="submit">Search</button>
+</form>
+
+<a href="/Staff/Create">Add Staff</a>
+
+<table border="1">
+<tr>
+<th>Index</th><th>Name</th><th>Email</th><th>Location</th><th>Actions</th>
+</tr>
+
+@foreach (var item in Model)
+{
+<tr>
+<td>@item.IndexNumber</td>
+<td>@item.FullNames</td>
+<td>@item.Email</td>
+<td>@item.CurrentLocation</td>
+<td>
+<a href="/Staff/Edit/@item.Id">Edit</a> |
+<a href="/Staff/Delete/@item.Id">Delete</a>
+</td>
+</tr>
+}
+</table>
